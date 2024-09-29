@@ -1,0 +1,51 @@
+import java.util.*;
+class electric
+{
+    String ConsumerNo;
+    String ConsumerName;
+    double currentreading;
+    double previousreading;
+    double bill=0;
+    String connectiontype;
+    electric()
+    {
+        Scanner sc=new Scanner(System.in);
+        ConsumerNo=sc.nextLine();
+        ConsumerName=sc.next();
+        currentreading=sc.nextDouble();
+        previousreading=sc.nextDouble();
+        connectiontype=sc.next();
+    }
+    void display()
+    {
+        System.out.println("Consumer number: "+ConsumerNo);
+        System.out.println("Consumer name: "+ConsumerName);
+        System.out.println("Current reading: "+currentreading);
+        System.out.println("previous reading: "+previousreading);
+        System.out.println("Connection type: "+connectiontype);
+    }
+    void bill()
+    {
+        double units=currentreading-previousreading;
+        double total=0;
+        if(units>=150)
+        {
+            total=total+(50*1.25);
+            total = total+((units-50)*3);
+        }
+        else
+        {
+            total=total+(100*2.50);
+            total = total+((units-100)*3.5);
+        }
+        System.out.println("Bill amount : "+ total);
+    }
+        
+    public static void main(String s[])
+    {
+      
+      electric e=new electric();
+      e.display();
+      e.bill();
+    }
+}
